@@ -1,0 +1,41 @@
+<!-- docs/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Lectures Login</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="config.local.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Lectures</h1>
+    <input type="password" id="password" placeholder="비밀번호 입력" onkeypress="handleKeyPress(event)">
+    <button onclick="login()">로그인</button>
+  </div>
+
+  <script>
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        login();
+      }
+    }
+
+    function login() {
+      const input = document.getElementById("password").value;
+      if (input === window.config.LOGIN_PASSWORD) {
+        sessionStorage.setItem("authorized", "true");
+        window.location.href = "main.html";
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    }
+
+    // Focus on password input when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById("password").focus();
+    });
+  </script>
+</body>
+</html>
