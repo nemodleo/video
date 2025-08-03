@@ -10,9 +10,9 @@
 </head>
 <body>
   <div class="login-container">
-    <h1>Lectures</h1>
-    <input type="password" id="password" placeholder="비밀번호 입력" onkeypress="handleKeyPress(event)">
-    <button onclick="login()">로그인</button>
+    <h1 class="login-title">Lectures</h1>
+    <input type="password" id="password" class="login-input" placeholder="비밀번호 입력" onkeypress="handleKeyPress(event)">
+    <button onclick="login()" class="login-button">로그인</button>
   </div>
 
   <script>
@@ -26,7 +26,7 @@
       const input = document.getElementById("password").value;
       if (input === window.config.LOGIN_PASSWORD) {
         sessionStorage.setItem("authorized", "true");
-        window.location.href = "main.html";
+        window.location.href = "courses.html";
       } else {
         alert("비밀번호가 틀렸습니다.");
       }

@@ -1,4 +1,4 @@
-// docs/assets/app.js
+// docs/assets/stock1-app.js
 (async function () {
     if (sessionStorage.getItem("authorized") !== "true") {
       location.href = "index.html";
@@ -16,8 +16,8 @@
     let allVideos = [];
     
     try {
-      console.log("Loading lectures data...");
-      const data = window.cryptoLecturesData;
+      console.log("Loading stock1 lectures data...");
+      const data = window.stock1LecturesData;
       console.log("Lectures data loaded:", data);
 
       data.forEach(section => {
@@ -116,7 +116,7 @@
     
     function playVideo(videoInfo) {
       console.log("Playing video:", videoInfo.title, videoInfo.id);
-      const m3u8 = `https://storage.googleapis.com/lecture-videos-us/crypto/hls/${videoInfo.id}/${videoInfo.id}.m3u8`;
+      const m3u8 = `https://storage.googleapis.com/lecture-videos-us/stock/hls/${videoInfo.id}/${videoInfo.id}.m3u8`;
       console.log("Video URL:", m3u8);
       
       // Hide welcome screen and show video

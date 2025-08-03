@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>강의 선택</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="course-selection-container">
+    <h1 class="course-selection-title">강의를 선택하세요</h1>
+    <p class="course-selection-subtitle">학습하고 싶은 강의 카테고리를 선택해주세요</p>
+    
+    <div class="course-grid">
+      <div class="course-card" onclick="selectCourse('crypto')">
+        <div class="course-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="course-title">Crypto Lectures</h3>
+        <p class="course-description">암호화폐 트레이딩 전문 강의</p>
+        <div class="course-stats">22개 강의</div>
+      </div>
+      
+      <div class="course-card" onclick="selectCourse('stock1')">
+        <div class="course-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 9L12 6L16 10L21 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 5H16V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="course-title">Stock Lectures1</h3>
+        <p class="course-description">주식 투자 기초부터 실전까지</p>
+        <div class="course-stats">22개 강의</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Check authorization
+    if (sessionStorage.getItem("authorized") !== "true") {
+      location.href = "index.html";
+    }
+
+    function selectCourse(courseType) {
+      sessionStorage.setItem("selectedCourse", courseType);
+      if (courseType === 'crypto') {
+        window.location.href = "crypto.html";
+      } else if (courseType === 'stock1') {
+        window.location.href = "stock1.html";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// docs/assets/app.js
+// docs/assets/crypto-app.js
 (async function () {
     if (sessionStorage.getItem("authorized") !== "true") {
       location.href = "index.html";
@@ -16,7 +16,7 @@
     let allVideos = [];
     
     try {
-      console.log("Loading lectures data...");
+      console.log("Loading crypto lectures data...");
       const data = window.cryptoLecturesData;
       console.log("Lectures data loaded:", data);
 

@@ -19,18 +19,19 @@ body {
   justify-content: center;
   height: 100vh;
   background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
-}
-
-.login-container h1 {
-  font-size: 3rem;
-  font-weight: 200;
-  letter-spacing: -2px;
-  margin-bottom: 3rem;
-  color: #fff;
   text-align: center;
 }
 
-.login-container input {
+.login-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 100;
+  letter-spacing: -2px;
+  margin: 0 0 1.5rem 0;
+  color: #fff;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.login-input {
   width: 320px;
   padding: 16px 20px;
   font-size: 1.1rem;
@@ -40,22 +41,23 @@ body {
   color: #fff;
   text-align: center;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   margin-bottom: 2rem;
+  animation: slideUp 0.8s ease-out 0.2s both;
 }
 
-.login-container input::placeholder {
+.login-input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.login-container input:focus {
+.login-input:focus {
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.15);
   transform: scale(1.02);
 }
 
-.login-container button {
+.login-button {
   width: 320px;
   padding: 16px;
   font-size: 1.1rem;
@@ -65,16 +67,17 @@ body {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: 0.5px;
+  animation: slideUp 0.8s ease-out 0.4s both;
 }
 
-.login-container button:hover {
+.login-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
 }
 
-.login-container button:active {
+.login-button:active {
   transform: translateY(0);
 }
 
@@ -420,6 +423,159 @@ video {
   transform: rotate(180deg);
 }
 
+/* Course Selection Styles */
+.course-selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+}
+
+.course-selection-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 200;
+  letter-spacing: -2px;
+  margin: 0 0 1rem 0;
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.course-selection-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 4rem 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+.course-card:active {
+  transform: translateY(-4px);
+}
+
+.course-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.course-card:hover .course-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.course-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.course-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.course-stats {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Back Button Styles */
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -432,8 +588,25 @@ video {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .login-container input,
-  .login-container button {
+  .login-input,
+  .login-button {
     width: 280px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .course-selection-title {
+    font-size: 2.5rem;
+  }
+
+  .course-selection-subtitle {
+    margin-bottom: 3rem;
   }
 }
