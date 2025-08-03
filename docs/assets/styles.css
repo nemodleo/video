@@ -137,6 +137,44 @@ body {
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  user-select: none;
+}
+
+.sidebar h3:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar h3::after {
+  content: '';
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.sidebar h3.collapsed::after {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.category-videos {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.category-videos.collapsed {
+  max-height: 0;
+  opacity: 0;
 }
 
 .sidebar button {

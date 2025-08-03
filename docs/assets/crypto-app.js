@@ -20,11 +20,17 @@
       const data = window.cryptoLecturesData;
       console.log("Lectures data loaded:", data);
 
-      data.forEach(section => {
+      data.forEach((section, sectionIndex) => {
         const sectionTitle = document.createElement("h3");
         sectionTitle.textContent = section.category;
+        sectionTitle.dataset.sectionIndex = sectionIndex;
         sidebar.appendChild(sectionTitle);
         console.log("Added section:", section.category);
+
+        // Create container for videos in this category
+        const categoryVideos = document.createElement("div");
+        categoryVideos.className = "category-videos";
+        categoryVideos.dataset.sectionIndex = sectionIndex;
 
         section.videos.forEach((videoInfo) => {
           allVideos.push(videoInfo);
@@ -49,8 +55,15 @@
             updateNavigationButtons();
             updateActiveVideo();
           };
-          sidebar.appendChild(btn);
+          categoryVideos.appendChild(btn);
           console.log("Added video button:", videoInfo.title);
+        });
+
+        sidebar.appendChild(categoryVideos);
+
+        // Add click event to section title for toggle
+        sectionTitle.addEventListener('click', () => {
+          toggleCategory(sectionIndex);
         });
       });
       
@@ -96,6 +109,16 @@
       nextBtn.disabled = currentVideoIndex >= allVideos.length - 1 || currentVideoIndex === -1;
     }
     
+    function toggleCategory(sectionIndex) {
+      const sectionTitle = document.querySelector(`h3[data-section-index="${sectionIndex}"]`);
+      const categoryVideos = document.querySelector(`.category-videos[data-section-index="${sectionIndex}"]`);
+      
+      if (sectionTitle && categoryVideos) {
+        sectionTitle.classList.toggle('collapsed');
+        categoryVideos.classList.toggle('collapsed');
+      }
+    }
+
     function updateActiveVideo() {
       // Remove active class from all video buttons
       document.querySelectorAll('.video-button').forEach(btn => {
