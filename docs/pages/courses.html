@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>강의 선택</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="https://raw.githubusercontent.com/nemodleo/portfolio/main/static/images/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <div class="course-selection-container">
@@ -36,13 +37,24 @@
         <p class="course-description">주식 투자 기초부터 실전까지</p>
         <div class="course-stats">22개 강의</div>
       </div>
+      
+      <div class="course-card" onclick="selectCourse('stock2')">
+        <div class="course-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="course-title">Stock Lectures 2</h3>
+        <p class="course-description">고급 투자 전략과 심화 기법</p>
+        <div class="course-stats">22개 강의</div>
+      </div>
     </div>
   </div>
 
   <script>
     // Check authorization
     if (sessionStorage.getItem("authorized") !== "true") {
-      location.href = "index.html";
+      location.href = "../index.html";
     }
 
     function selectCourse(courseType) {
@@ -51,6 +63,8 @@
         window.location.href = "crypto.html";
       } else if (courseType === 'stock1') {
         window.location.href = "stock1.html";
+      } else if (courseType === 'stock2') {
+        window.location.href = "stock2.html";
       }
     }
   </script>

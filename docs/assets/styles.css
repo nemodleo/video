@@ -18,63 +18,74 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   text-align: center;
+  position: relative;
 }
 
 .login-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 100;
-  letter-spacing: -2px;
-  margin: 0 0 1.5rem 0;
+  letter-spacing: 4px;
+  margin: 0 0 4rem 0;
   color: #fff;
   animation: fadeIn 0.8s ease-out;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
 }
 
 .login-input {
-  width: 320px;
-  padding: 16px 20px;
+  width: 380px;
+  padding: 16px 0;
   font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   text-align: center;
   outline: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   animation: slideUp 0.8s ease-out 0.2s both;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 .login-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 .login-input:focus {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.02);
+  border-bottom-color: #fff;
+  transform: translateY(-2px);
 }
 
 .login-button {
-  width: 320px;
-  padding: 16px;
+  width: 380px;
+  padding: 16px 0;
   font-size: 1.1rem;
-  font-weight: 500;
-  background: #fff;
-  color: #000;
+  font-weight: 300;
+  background: transparent;
+  color: #fff;
   border: none;
-  border-radius: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   animation: slideUp 0.8s ease-out 0.4s both;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
 }
 
 .login-button:hover {
+  border-bottom-color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
 }
 
 .login-button:active {
@@ -300,7 +311,7 @@ video {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -311,7 +322,7 @@ video {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -456,9 +467,9 @@ video {
 
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   width: 100%;
 }
 

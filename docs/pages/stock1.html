@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Trading Lectures</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/nemodleo/portfolio/main/static/images/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="../data/lectures/stock1.js"></script>
+</head>
+<body>
+  <button class="back-button" onclick="goBack()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="16,17 21,12 16,7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="container">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="video-area">
+      <button id="sidebarToggle" class="sidebar-toggle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="video-container">
+        <div id="welcomeScreen" class="welcome-screen">
+          <h1 class="welcome-title">Stock Lectures1</h1>
+          <p class="welcome-subtitle">강의를 선택하여 시작하세요</p>
+        </div>
+        <video id="videoPlayer" controls style="display: none;"></video>
+        <div class="video-controls">
+          <button id="prevBtn" class="nav-btn prev-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>이전</span>
+          </button>
+          <button id="nextBtn" class="nav-btn next-btn">
+            <span>다음</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/stock1-app.js"></script>
+  <script>
+    function goBack() {
+      window.location.href = "courses.html";
+    }
+  </script>
+</body>
+</html>

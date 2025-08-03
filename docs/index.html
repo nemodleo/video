@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Lectures Login</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/nemodleo/portfolio/main/static/images/icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="config.local.js"></script>
   <script src="config.js"></script>
@@ -26,7 +27,7 @@
       const input = document.getElementById("password").value;
       if (input === window.config.LOGIN_PASSWORD) {
         sessionStorage.setItem("authorized", "true");
-        window.location.href = "courses.html";
+        window.location.href = "pages/courses.html";
       } else {
         alert("비밀번호가 틀렸습니다.");
       }

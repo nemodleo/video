@@ -1,4 +1,6 @@
+# data folder
 data/
+!docs/data/
 
 # Mac OS generated files
 .DS_Store
