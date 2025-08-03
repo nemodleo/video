@@ -246,12 +246,12 @@ body {
 }
 
 .video-button:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  padding-left: 52px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  transform: translateX(4px);
 }
 
 .video-button:hover .video-number {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -260,18 +260,18 @@ body {
 }
 
 .video-button.active {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-left: 3px solid #fff;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .video-button.active .video-number {
-  background: #fff;
-  color: #000;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 .video-button.active .video-title {
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .sidebar button:hover::before {
@@ -321,29 +321,31 @@ video {
   min-height: 400px;
   text-align: center;
   animation: fadeIn 0.8s ease-out;
+  position: relative;
 }
 
 .welcome-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 100;
-  letter-spacing: -3px;
-  margin: 0 0 1.5rem 0;
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-  line-height: 0.9;
+  letter-spacing: 3px;
+  margin: 0 0 2rem 0;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  line-height: 1.1;
 }
 
 .welcome-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   opacity: 0;
   animation: slideUp 0.8s ease-out 0.3s forwards;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -379,23 +381,23 @@ video {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  color: rgba(255, 255, 255, 0.85);
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  font-weight: 300;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 100px;
   justify-content: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .nav-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-bottom-color: #fff;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -405,14 +407,14 @@ video {
 }
 
 .nav-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
   transform: none;
 }
 
 .nav-btn:disabled:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   transform: none;
 }
 
@@ -421,29 +423,25 @@ video {
   top: 20px;
   left: 20px;
   z-index: 1000;
-  width: 44px;
-  height: 44px;
-  background: rgba(26, 26, 26, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  color: rgba(255, 255, 255, 0.85);
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
 }
 
 .sidebar-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
-  transform: scale(1.05);
+  transform: translateY(-1px);
 }
 
 .sidebar-toggle:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
 .container.sidebar-hidden .sidebar {
@@ -600,35 +598,32 @@ video {
   text-transform: uppercase;
 }
 
+
 /* Back Button Styles */
 .back-button {
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 1000;
-  width: 44px;
-  height: 44px;
-  background: rgba(26, 26, 26, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  color: rgba(255, 255, 255, 0.85);
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
-  transform: scale(1.05);
+  transform: translateY(-1px);
 }
 
 .back-button:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {

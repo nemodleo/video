@@ -1,7 +1,7 @@
 // docs/assets/stock2-app.js
 (async function () {
     if (sessionStorage.getItem("authorized") !== "true") {
-      location.href = "index.html";
+      location.href = "../index.html";
     }
   
     const sidebar = document.getElementById("sidebar");
